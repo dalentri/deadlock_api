@@ -19,6 +19,7 @@
   "type": "module",
   "dependencies": {
     "@types/node": "^25.9.1",
+    "cheerio": "^1.2.0",
     "express": "^5.2.1"
   },
   "devDependencies": {
