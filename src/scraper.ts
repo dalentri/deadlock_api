@@ -1,6 +1,5 @@
-export {};
+import { heroes } from "../data/character_list.ts";
 
-const heroes = ["Abrams", "Apollo", "Bebop"];
 let current_hero: string;
 
 for (let i = 0; i < heroes.length; i++) {
