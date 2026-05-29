@@ -1,7 +1,9 @@
 import { heroes } from "../data/character_list.ts";
 
+const characterDataDestination = "data/cache/characters/";
 let current_hero: string;
 
+// GET request for all up-to-date heroes
 for (let i = 0; i < heroes.length; i++) {
   current_hero = heroes[i];
 
@@ -24,5 +26,5 @@ for (let i = 0; i < heroes.length; i++) {
   const final = JSON.parse(html);
   let final_text = final.parse.text["*"];
 
-  Bun.write(`data/cache/characters/${current_hero}.json`, final_text);
+  Bun.write(`${characterDataDestination}${current_hero}.json`, final_text);
 }
