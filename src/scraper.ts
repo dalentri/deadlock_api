@@ -1,25 +1,29 @@
 export {};
 
 const heroes = ["Abrams", "Apollo", "Bebop"];
-let current_hero: string = "Abrams";
+let current_hero: string;
 
-const params = new URLSearchParams({
-  action: "parse",
-  format: "json",
-  text: `{{infobox hero| key = ${current_hero}}}`,
-  title: "Heroes",
-});
+for (let i = 0; i < heroes.length; i++) {
+  current_hero = heroes[i];
 
-// Turn it into a percent encoded string
-params.toString();
+  const params = new URLSearchParams({
+    action: "parse",
+    format: "json",
+    text: `{{infobox hero| key = ${current_hero}}}`,
+    title: "Heroes",
+  });
 
-// Append it to the end of the API request
-const url = `https://deadlock.wiki/api.php?${params}`;
+  // Turn it into a percent encoded string
+  params.toString();
 
-const response = await fetch(url);
-const html = await response.text();
+  // Append it to the end of the API request
+  const url = `https://deadlock.wiki/api.php?${params}`;
 
-const final = JSON.parse(html);
-let final_text = final.parse.text["*"];
+  const response = await fetch(url);
+  const html = await response.text();
 
-console.log(final_text);
+  const final = JSON.parse(html);
+  let final_text = final.parse.text["*"];
+
+  Bun.write(`data/cache/characters/${current_hero}.json`, final_text);
+}
