@@ -23,5 +23,5 @@ for (const hero of heroes) {
   const final = JSON.parse(html);
   let final_text = final.parse.text["*"];
 
-  Bun.write(`${characterDataDestination}${hero}.json`, final_text);
+  Bun.write(`${characterDataDestination}${hero}.html`, final_text);
 }
