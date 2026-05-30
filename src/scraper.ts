@@ -1,16 +1,13 @@
 import { heroes } from "../data/character_list.ts";
 
 const characterDataDestination = "data/characters/";
-let currentHero: string;
 
 // GET request for all up-to-date heroes
 for (const hero of heroes) {
-  currentHero = hero;
-
   const params = new URLSearchParams({
     action: "parse",
     format: "json",
-    text: `{{infobox hero| key = ${currentHero}}}`,
+    text: `{{infobox hero| key = ${hero}}}`,
     title: "Heroes",
   });
 
@@ -26,5 +23,5 @@ for (const hero of heroes) {
   const final = JSON.parse(html);
   let final_text = final.parse.text["*"];
 
-  Bun.write(`${characterDataDestination}${currentHero}.json`, final_text);
+  Bun.write(`${characterDataDestination}${hero}.json`, final_text);
 }
