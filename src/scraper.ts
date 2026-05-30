@@ -4,8 +4,8 @@ const characterDataDestination = "data/characters/";
 let currentHero: string;
 
 // GET request for all up-to-date heroes
-for (let i = 0; i < heroes.length; i++) {
-  currentHero = heroes[i];
+for (const hero of heroes) {
+  currentHero = hero;
 
   const params = new URLSearchParams({
     action: "parse",
