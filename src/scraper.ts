@@ -1,6 +1,6 @@
 import { heroes } from "../data/character_list.ts";
 
-const characterDataDestination = "data/cache/characters/";
+const characterDataDestination = "data/characters/";
 let currentHero: string;
 
 // GET request for all up-to-date heroes
