@@ -1,25 +1,25 @@
 export interface Hero {
   name: string;
   weapon_stats: [
-    damage_per_second: number,
-    bullet_damage: number,
-    pellets_per_shot: number,
+    damagePerSecond: number,
+    bulletDamage: number,
+    pelletsPerShot: number,
     ammo: number,
-    bullets_per_sec: number,
-    reload_time: number,
-    bullet_velocity: number,
-    light_melee: number,
-    heavy_melee: number,
-    falloff_range: string,
+    bulletsPerSec: number,
+    reloadTime: number,
+    bulletVelocity: number,
+    lightMelee: number,
+    heavyMelee: number,
+    falloffRange: string,
   ];
   vitality_stats: [
     health: number,
-    health_regen: number,
-    move_speed: number,
-    sprint_speed: number,
-    dash_speed: number,
+    healthRegen: number,
+    moveSpeed: number,
+    sprintSpeed: number,
+    dashSpeed: number,
     stamina: number,
-    stamina_cooldown: number,
+    staminaCooldown: number,
   ];
-  spirit_power: number;
+  spiritPower: number;
 }
