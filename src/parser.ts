@@ -1,14 +1,17 @@
 import { readdir } from "node:fs/promises";
 import * as cheerio from "cheerio";
 
-const path_prefix: string = "./data/characters/";
-const heroesHtmlFiles: string[] = await readdir(path_prefix);
+const pathPrefix: string = "./data/characters/";
+const heroesHtmlFiles: string[] = await readdir(pathPrefix);
+export const allHeroData: any[] = [];
 
-for (const hero_file of heroesHtmlFiles) {
-  const html: string = await Bun.file(path_prefix + hero_file).text();
+for (const heroFile of heroesHtmlFiles) {
+  let heroData: any[] = [];
+
+  const html: string = await Bun.file(pathPrefix + heroFile).text();
   const $ = cheerio.load(html);
 
-  const $heroName: string = hero_file.replace(".html", "");
+  const $heroName: string = heroFile.replace(".html", "");
 
   const $damagePerSecond: number = parseInt(
     $('a[title="Damage per second"]')
@@ -174,4 +177,28 @@ for (const hero_file of heroesHtmlFiles) {
       .eq(1)
       .prop("textContent") ?? "0",
   );
+
+  heroData = [
+    $heroName,
+    $damagePerSecond,
+    $bulletDamage,
+    $pelletsPerShot,
+    $ammo,
+    $bulletsPerSec,
+    $reloadTime,
+    $bulletVelocity,
+    $lightMelee,
+    $heavyMelee,
+    $falloffRange,
+    $health,
+    $healthRegen,
+    $moveSpeed,
+    $sprintSpeed,
+    $dashSpeed,
+    $stamina,
+    $staminaCooldown,
+    $spiritPower,
+  ];
+
+  allHeroData.push(heroData);
 }
