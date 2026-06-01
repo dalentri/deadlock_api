@@ -1,6 +1,6 @@
 export interface Hero {
   name: string;
-  weapon_stats: [
+  weaponStats: [
     damagePerSecond: number,
     bulletDamage: number,
     pelletsPerShot: number,
@@ -12,7 +12,7 @@ export interface Hero {
     heavyMelee: number,
     falloffRange: string,
   ];
-  vitality_stats: [
+  vitalityStats: [
     health: number,
     healthRegen: number,
     moveSpeed: number,
