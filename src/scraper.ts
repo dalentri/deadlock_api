@@ -21,6 +21,7 @@ for (const hero of heroes) {
   const html = await response.text();
 
   const final = JSON.parse(html);
+  //FIX: Fix casing
   let final_text = final.parse.text["*"];
 
   Bun.write(`${characterDataDestination}${hero}.html`, final_text);
