@@ -1,16 +1,11 @@
 import { readdir } from "node:fs/promises";
 import * as cheerio from "cheerio";
 
-const pathPrefix: string = "./data/characters/";
-const heroesHtmlFiles: string[] = await readdir(pathPrefix);
-export const allHeroData: any[] = [];
-
-for (const heroFile of heroesHtmlFiles) {
-  let heroData: any[] = [];
-
-  const html: string = await Bun.file(pathPrefix + heroFile).text();
-  const $ = cheerio.load(html);
-
+export function parseHeroData(
+  $: cheerio.CheerioAPI,
+  heroData: any[],
+  heroFile: string,
+): any[] {
   const $heroName: string = heroFile.replace(".html", "");
 
   const $damagePerSecond: number = parseInt(
@@ -178,7 +173,7 @@ for (const heroFile of heroesHtmlFiles) {
       .prop("textContent") ?? "0",
   );
 
-  heroData = [
+  return (heroData = [
     $heroName,
     $damagePerSecond,
     $bulletDamage,
@@ -198,7 +193,5 @@ for (const heroFile of heroesHtmlFiles) {
     $stamina,
     $staminaCooldown,
     $spiritPower,
-  ];
-
-  allHeroData.push(heroData);
+  ]);
 }
