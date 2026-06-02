@@ -3,25 +3,28 @@ import { heroes } from "../data/character_list.ts";
 const characterDataDestination = "data/characters/";
 
 // GET request for all up-to-date heroes
-for (const hero of heroes) {
-  const params = new URLSearchParams({
-    action: "parse",
-    format: "json",
-    text: `{{infobox hero| key = ${hero}}}`,
-    title: "Heroes",
-  });
+async function getCharacterHtml(): Promise<any> {
+  for (const hero of heroes) {
+    const params = new URLSearchParams({
+      action: "parse",
+      format: "json",
+      text: `{{infobox hero| key = ${hero}}}`,
+      title: "Heroes",
+    });
 
-  // Turn it into a percent encoded string
-  params.toString();
+    // Turn it into a percent encoded string
+    params.toString();
 
-  // Append it to the end of the API request
-  const url = `https://deadlock.wiki/api.php?${params}`;
+    // Append it to the end of the API request
+    const url = `https://deadlock.wiki/api.php?${params}`;
 
-  const response = await fetch(url);
-  const html = await response.text();
+    const response = await fetch(url);
+    const html = await response.text();
 
-  const final = JSON.parse(html);
-  let finalText = final.parse.text["*"];
+    const final = JSON.parse(html);
+    let finalText = final.parse.text["*"];
 
-  Bun.write(`${characterDataDestination}${hero}.html`, finalText);
+    Bun.write(`${characterDataDestination}${hero}.html`, finalText);
+    return;
+  }
 }
