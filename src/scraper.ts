@@ -25,6 +25,5 @@ async function getCharacterHtml(): Promise<any> {
     let finalText = final.parse.text["*"];
 
     Bun.write(`${characterDataDestination}${hero}.html`, finalText);
-    return;
   }
 }

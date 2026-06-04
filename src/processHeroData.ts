@@ -3,7 +3,7 @@ import { parseHeroData } from "./parser";
 import { heroBuilder } from "./builder/heroBuilder";
 import { readdir } from "node:fs/promises";
 
-// take html files that were parsed from deadlock wiki and parse them into json
+// take html files that were fetched from deadlock wiki and parse them into json
 export async function processHeroData(
   pathPrefix: string,
   heroesHtmlFiles: string[],
