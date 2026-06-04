@@ -1,0 +1,25 @@
+{
+  "name": "Yamato",
+  "weaponStats": {
+    "damagePerSecond": 63,
+    "bulletDamage": 5.31,
+    "pelletsPerShot": 5,
+    "ammo": 12,
+    "bulletsPerSec": 2.38,
+    "reloadTime": 2.44,
+    "bulletVelocity": 254,
+    "lightMelee": 55,
+    "heavyMelee": 128,
+    "falloffRange": "0"
+  },
+  "vitalityStats": {
+    "health": 730,
+    "healthRegen": 1,
+    "moveSpeed": 8.2,
+    "sprintSpeed": 1.6,
+    "dashSpeed": 14.7,
+    "stamina": 0,
+    "staminaCooldown": 4.5
+  },
+  "spiritPower": 0
+}

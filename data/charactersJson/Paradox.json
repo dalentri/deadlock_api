@@ -1,0 +1,25 @@
+{
+  "name": "Paradox",
+  "weaponStats": {
+    "damagePerSecond": 51,
+    "bulletDamage": 6.8,
+    "pelletsPerShot": 5,
+    "ammo": 40,
+    "bulletsPerSec": 7.56,
+    "reloadTime": 2.59,
+    "bulletVelocity": 525,
+    "lightMelee": 50,
+    "heavyMelee": 116,
+    "falloffRange": "0"
+  },
+  "vitalityStats": {
+    "health": 730,
+    "healthRegen": 1,
+    "moveSpeed": 6.7,
+    "sprintSpeed": 1.6,
+    "dashSpeed": 16.1,
+    "stamina": 0,
+    "staminaCooldown": 4.5
+  },
+  "spiritPower": 0
+}

@@ -1,0 +1,25 @@
+{
+  "name": "Mina",
+  "weaponStats": {
+    "damagePerSecond": 29,
+    "bulletDamage": 7.31,
+    "pelletsPerShot": 3.97,
+    "ammo": 12,
+    "bulletsPerSec": 3.97,
+    "reloadTime": 1.7,
+    "bulletVelocity": 762,
+    "lightMelee": 50,
+    "heavyMelee": 116,
+    "falloffRange": "0"
+  },
+  "vitalityStats": {
+    "health": 660,
+    "healthRegen": 2,
+    "moveSpeed": 6.5,
+    "sprintSpeed": 1.6,
+    "dashSpeed": 16.1,
+    "stamina": 0,
+    "staminaCooldown": 4.2
+  },
+  "spiritPower": 0
+}

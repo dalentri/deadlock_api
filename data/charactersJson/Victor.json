@@ -1,0 +1,25 @@
+{
+  "name": "Victor",
+  "weaponStats": {
+    "damagePerSecond": 70,
+    "bulletDamage": 12,
+    "pelletsPerShot": 5.05,
+    "ammo": 24,
+    "bulletsPerSec": 5.05,
+    "reloadTime": 2.4,
+    "bulletVelocity": 203,
+    "lightMelee": 50,
+    "heavyMelee": 116,
+    "falloffRange": "0"
+  },
+  "vitalityStats": {
+    "health": 800,
+    "healthRegen": 1.5,
+    "moveSpeed": 6.3,
+    "sprintSpeed": 1.1,
+    "dashSpeed": 14.3,
+    "stamina": 0,
+    "staminaCooldown": 4.5
+  },
+  "spiritPower": 0
+}

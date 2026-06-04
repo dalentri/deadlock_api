@@ -1,0 +1,25 @@
+{
+  "name": "Billy",
+  "weaponStats": {
+    "damagePerSecond": 74,
+    "bulletDamage": 6.3,
+    "pelletsPerShot": 11.8,
+    "ammo": 30,
+    "bulletsPerSec": 11.8,
+    "reloadTime": 2.9,
+    "bulletVelocity": 513,
+    "lightMelee": 50,
+    "heavyMelee": 116,
+    "falloffRange": "0"
+  },
+  "vitalityStats": {
+    "health": 820,
+    "healthRegen": 2.5,
+    "moveSpeed": 7,
+    "sprintSpeed": 1.6,
+    "dashSpeed": 14.7,
+    "stamina": 0,
+    "staminaCooldown": 4.5
+  },
+  "spiritPower": 0
+}

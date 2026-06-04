@@ -1,0 +1,25 @@
+{
+  "name": "Mo & Krill",
+  "weaponStats": {
+    "damagePerSecond": 59,
+    "bulletDamage": 2.82,
+    "pelletsPerShot": 4,
+    "ammo": 20,
+    "bulletsPerSec": 5.29,
+    "reloadTime": 2.82,
+    "bulletVelocity": 320,
+    "lightMelee": 50,
+    "heavyMelee": 116,
+    "falloffRange": "0"
+  },
+  "vitalityStats": {
+    "health": 930,
+    "healthRegen": 1,
+    "moveSpeed": 8,
+    "sprintSpeed": 1.6,
+    "dashSpeed": 14.3,
+    "stamina": 0,
+    "staminaCooldown": 4.5
+  },
+  "spiritPower": 0
+}

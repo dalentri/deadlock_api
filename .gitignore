@@ -1,5 +1,3 @@
-data/charactersJson/
-data/charactersHtml/
 .DS_Store
 env
 .env.local

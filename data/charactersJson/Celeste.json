@@ -1,0 +1,25 @@
+{
+  "name": "Celeste",
+  "weaponStats": {
+    "damagePerSecond": 31,
+    "bulletDamage": 18,
+    "pelletsPerShot": 1.72,
+    "ammo": 8,
+    "bulletsPerSec": 1.72,
+    "reloadTime": 2,
+    "bulletVelocity": 50,
+    "lightMelee": 50,
+    "heavyMelee": 116,
+    "falloffRange": "0"
+  },
+  "vitalityStats": {
+    "health": 690,
+    "healthRegen": 1,
+    "moveSpeed": 6.2,
+    "sprintSpeed": 1.6,
+    "dashSpeed": 16.1,
+    "stamina": 0,
+    "staminaCooldown": 5
+  },
+  "spiritPower": 0
+}

@@ -1,0 +1,25 @@
+{
+  "name": "Silver",
+  "weaponStats": {
+    "damagePerSecond": 42,
+    "bulletDamage": 5.1,
+    "pelletsPerShot": 7,
+    "ammo": 7,
+    "bulletsPerSec": 1.18,
+    "reloadTime": 0.3,
+    "bulletVelocity": 813,
+    "lightMelee": 50,
+    "heavyMelee": 116,
+    "falloffRange": "0"
+  },
+  "vitalityStats": {
+    "health": 830,
+    "healthRegen": 2.5,
+    "moveSpeed": 6.7,
+    "sprintSpeed": 1.5,
+    "dashSpeed": 14.7,
+    "stamina": 0,
+    "staminaCooldown": 4.5
+  },
+  "spiritPower": 0
+}

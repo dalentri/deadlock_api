@@ -28,4 +28,5 @@ export async function processHeroData(
 const characterHtmlPathPrefix: string = "../data/charactersHtml/";
 const heroHtmlFiles = await readdir(characterHtmlPathPrefix);
 
+console.log("Parsing HTML and creating hero JSON files...");
 processHeroData(characterHtmlPathPrefix, heroHtmlFiles);

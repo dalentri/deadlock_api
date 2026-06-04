@@ -1,0 +1,25 @@
+{
+  "name": "Holliday",
+  "weaponStats": {
+    "damagePerSecond": 41,
+    "bulletDamage": 19.7,
+    "pelletsPerShot": 2.12,
+    "ammo": 10,
+    "bulletsPerSec": 2.12,
+    "reloadTime": 2.75,
+    "bulletVelocity": 1160,
+    "lightMelee": 50,
+    "heavyMelee": 116,
+    "falloffRange": "0"
+  },
+  "vitalityStats": {
+    "health": 780,
+    "healthRegen": 2,
+    "moveSpeed": 8.2,
+    "sprintSpeed": 1.6,
+    "dashSpeed": 16.1,
+    "stamina": 0,
+    "staminaCooldown": 4.5
+  },
+  "spiritPower": 0
+}

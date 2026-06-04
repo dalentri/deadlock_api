@@ -1,0 +1,25 @@
+{
+  "name": "Vyper",
+  "weaponStats": {
+    "damagePerSecond": 94,
+    "bulletDamage": 6.58,
+    "pelletsPerShot": 14.3,
+    "ammo": 24,
+    "bulletsPerSec": 14.3,
+    "reloadTime": 1.6,
+    "bulletVelocity": 412,
+    "lightMelee": 50,
+    "heavyMelee": 116,
+    "falloffRange": "0"
+  },
+  "vitalityStats": {
+    "health": 780,
+    "healthRegen": 2,
+    "moveSpeed": 6.9,
+    "sprintSpeed": 1.6,
+    "dashSpeed": 14.7,
+    "stamina": 0,
+    "staminaCooldown": 4.5
+  },
+  "spiritPower": 0
+}

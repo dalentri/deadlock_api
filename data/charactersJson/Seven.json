@@ -1,0 +1,25 @@
+{
+  "name": "Seven",
+  "weaponStats": {
+    "damagePerSecond": 63,
+    "bulletDamage": 10.8,
+    "pelletsPerShot": 3,
+    "ammo": 29,
+    "bulletsPerSec": 5.83,
+    "reloadTime": 2.35,
+    "bulletVelocity": 635,
+    "lightMelee": 50,
+    "heavyMelee": 116,
+    "falloffRange": "0"
+  },
+  "vitalityStats": {
+    "health": 730,
+    "healthRegen": 1,
+    "moveSpeed": 6.7,
+    "sprintSpeed": 1.8,
+    "dashSpeed": 14.7,
+    "stamina": 0,
+    "staminaCooldown": 4.5
+  },
+  "spiritPower": 0
+}

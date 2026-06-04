@@ -1,9 +1,9 @@
 import { heroes } from "../data/character_list.ts";
 
-const characterDataDestination = "data/characters/";
-
 // GET request for all up-to-date heroes
-async function getCharacterHtml(): Promise<any> {
+async function getCharacterHtml(
+  characterDataDestination: string,
+): Promise<any> {
   for (const hero of heroes) {
     const params = new URLSearchParams({
       action: "parse",
@@ -24,8 +24,11 @@ async function getCharacterHtml(): Promise<any> {
     const final = JSON.parse(html);
     let finalText = final.parse.text["*"];
 
-    Bun.write(`${characterDataDestination}${hero}.html`, finalText);
+    await Bun.write(`${characterDataDestination}${hero}.html`, finalText);
   }
 }
 
-getCharacterHtml();
+const characterDataDestination = "../data/charactersHtml/";
+
+console.log("Fetching data and creating hero HTML files...");
+getCharacterHtml(characterDataDestination);
