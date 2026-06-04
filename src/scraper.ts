@@ -27,3 +27,5 @@ async function getCharacterHtml(): Promise<any> {
     Bun.write(`${characterDataDestination}${hero}.html`, finalText);
   }
 }
+
+getCharacterHtml();
