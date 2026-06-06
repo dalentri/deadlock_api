@@ -1,11 +1,9 @@
 import express from "express";
 import { heroSummaryCache, heroFullDataIndex } from "../../data/heroCache";
 import { Request, Response } from "express";
-import { readFile } from "node:fs/promises";
 
 const router = express.Router();
 
-//BUG: Only one character coming up
 router.get("/", (req: Request, res: Response) => {
   res.json(heroSummaryCache);
 });
