@@ -4,10 +4,10 @@ import { heroSummaryCache, heroFullDataIndex } from "../data/heroCache";
 import app from "./app";
 
 async function initCache(): Promise<any> {
-  const files = await readdir("../data/charactersJson/");
+  const files = await readdir(`${import.meta.dir}/../data/charactersJson/`);
 
   for (const heroJsonFile of files) {
-    const filePath = `../data/charactersJson/${heroJsonFile}`;
+    const filePath = `${import.meta.dir}/../data/charactersJson/${heroJsonFile}`;
     const rawData = await readFile(filePath, "utf-8");
 
     const characterData = JSON.parse(rawData);

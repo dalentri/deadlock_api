@@ -28,7 +28,7 @@ async function getCharacterHtml(
   }
 }
 
-const characterDataDestination = "../data/charactersHtml/";
+const characterDataDestination = `${import.meta.dir}/../data/charactersHtml/`;
 
 console.log("Fetching data and creating hero HTML files...");
 getCharacterHtml(characterDataDestination);

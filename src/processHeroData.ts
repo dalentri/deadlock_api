@@ -14,13 +14,16 @@ export async function processHeroData(
     const html: string = await Bun.file(pathPrefix + heroFile).text();
     const $ = cheerio.load(html);
 
-    // Create an array of heroes with their full values
     const rawData: any[] = parseHeroData($, heroData, heroFile);
 
-    // Put the hero values into the Hero interface to
     const heroJson = JSON.stringify(heroBuilder(rawData), null, 2);
     const heroJsonName = heroFile.replace(".html", ".json");
-    Bun.write(`../data/charactersJson/` + heroJsonName, heroJson);
+
+    console.log(`writing file for ${heroJsonName}`, heroJson);
+    await Bun.write(
+      `${import.meta.dir}/../data/charactersJson/${heroJsonName}`,
+      heroJson,
+    );
   }
 }
 
@@ -29,4 +32,4 @@ const characterHtmlPathPrefix: string = "../data/charactersHtml/";
 const heroHtmlFiles = await readdir(characterHtmlPathPrefix);
 
 console.log("Parsing HTML and creating hero JSON files...");
-processHeroData(characterHtmlPathPrefix, heroHtmlFiles);
+await processHeroData(characterHtmlPathPrefix, heroHtmlFiles);

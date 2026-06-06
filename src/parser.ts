@@ -91,15 +91,6 @@ export function parseHeroData(
       .prop("textContent") ?? "0",
   );
 
-  const $falloffRange: string = (
-    $('span:contains("Falloff Range")')
-      .closest("td")
-      .next()
-      .children("span")
-      .eq(1)
-      .prop("textContent") ?? "0"
-  ).trim();
-
   const $health: number = parseFloat(
     $('span:contains("Health")')
       .closest("td")
@@ -183,7 +174,6 @@ export function parseHeroData(
     $bulletVelocity,
     $lightMelee,
     $heavyMelee,
-    $falloffRange,
     $health,
     $healthRegen,
     $moveSpeed,
