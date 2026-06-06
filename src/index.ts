@@ -17,9 +17,18 @@ async function initCache(): Promise<any> {
       .toLowerCase()
       .replaceAll(" ", "-");
 
-    const { name, damagePerSecond, health } = characterData;
+    const {
+      name,
+      weaponStats: { damagePerSecond },
+      vitalityStats: { health },
+    } = characterData;
 
-    heroSummaryCache.push({ slug, name, damagePerSecond, health });
+    heroSummaryCache.push({
+      slug,
+      name,
+      weaponStats: { damagePerSecond },
+      vitalityStats: { health },
+    });
     heroFullDataIndex[slug] = characterData;
   }
 }
