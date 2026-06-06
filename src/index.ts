@@ -1,11 +1,7 @@
 import express from "express";
 import { readFile } from "node:fs/promises";
 import { readdir } from "node:fs/promises";
-import { Hero } from "./types/hero";
-import { start } from "node:repl";
-
-const heroSummaryCache: any[] = [];
-const heroFullDataIndex: Record<string, Hero> = {};
+import { heroSummaryCache, heroFullDataIndex } from "../data/heroCache";
 
 async function initCache() {
   const files = await readdir("../data/charactersJson/");
