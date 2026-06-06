@@ -20,7 +20,7 @@ export async function processHeroData(
     // Put the hero values into the Hero interface to
     const heroJson = JSON.stringify(heroBuilder(rawData), null, 2);
     const heroJsonName = heroFile.replace(".html", ".json");
-    Bun.write(`./data/charactersJson/` + heroJsonName, heroJson);
+    Bun.write(`../data/charactersJson/` + heroJsonName, heroJson);
   }
 }
 

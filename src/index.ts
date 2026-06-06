@@ -1,10 +1,9 @@
-import express from "express";
 import { readFile } from "node:fs/promises";
 import { readdir } from "node:fs/promises";
 import { heroSummaryCache, heroFullDataIndex } from "../data/heroCache";
 import app from "./app";
 
-async function initCache() {
+async function initCache(): Promise<any> {
   const files = await readdir("../data/charactersJson/");
 
   for (const heroJsonFile of files) {
