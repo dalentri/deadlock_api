@@ -1,4 +1,3 @@
-import { readdir } from "node:fs/promises";
 import * as cheerio from "cheerio";
 
 export function parseHeroData(
