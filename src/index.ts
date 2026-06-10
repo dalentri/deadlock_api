@@ -1,6 +1,7 @@
 import { readFile } from "node:fs/promises";
 import { readdir } from "node:fs/promises";
 import { heroSummaryCache, heroFullDataIndex } from "../data/heroCache";
+import mongoose from "mongoose";
 import app from "./app";
 
 async function initCache(): Promise<any> {
@@ -37,6 +38,10 @@ async function initCache(): Promise<any> {
 async function startServer() {
   try {
     const port = 3000;
+    const mongoUri = process.env.MONGO_URI || "mongodb://database:27017/app_db";
+
+    await mongoose.connect(mongoUri);
+    console.log("Connected to MongoDB.");
 
     await initCache();
     console.log("Cache implemented successfully.");

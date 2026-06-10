@@ -23,12 +23,5 @@ async function getCharacterHtml(
 
     const final = JSON.parse(html);
     let finalText = final.parse.text["*"];
-
-    await Bun.write(`${characterDataDestination}${hero}.html`, finalText);
   }
 }
-
-const characterDataDestination = `${import.meta.dir}/../data/charactersHtml/`;
-
-console.log("Fetching data and creating hero HTML files...");
-getCharacterHtml(characterDataDestination);
