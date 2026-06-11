@@ -1,11 +1,8 @@
 import * as cheerio from "cheerio";
+import { Hero } from "./types/hero";
 
-export function parseHeroData(
-  $: cheerio.CheerioAPI,
-  heroData: any[],
-  heroFile: string,
-): any[] {
-  const $heroName: string = heroFile.replace(".html", "");
+export function parseHeroData($: cheerio.CheerioAPI, heroName: string): Hero {
+  const name: string = heroName;
 
   const $damagePerSecond: number = parseInt(
     $('a[title="Damage per second"]')
@@ -163,24 +160,28 @@ export function parseHeroData(
       .prop("textContent") ?? "0",
   );
 
-  return (heroData = [
-    $heroName,
-    $damagePerSecond,
-    $bulletDamage,
-    $pelletsPerShot,
-    $ammo,
-    $bulletsPerSec,
-    $reloadTime,
-    $bulletVelocity,
-    $lightMelee,
-    $heavyMelee,
-    $health,
-    $healthRegen,
-    $moveSpeed,
-    $sprintSpeed,
-    $dashSpeed,
-    $stamina,
-    $staminaCooldown,
-    $spiritPower,
-  ]);
+  return {
+    name: name,
+    weaponStats: {
+      damagePerSecond: $damagePerSecond,
+      bulletDamage: $bulletDamage,
+      pelletsPerShot: $pelletsPerShot,
+      ammo: $ammo,
+      bulletsPerSec: $bulletsPerSec,
+      reloadTime: $reloadTime,
+      bulletVelocity: $bulletVelocity,
+      lightMelee: $lightMelee,
+      heavyMelee: $heavyMelee,
+    },
+    vitalityStats: {
+      health: $health,
+      healthRegen: $healthRegen,
+      moveSpeed: $moveSpeed,
+      sprintSpeed: $sprintSpeed,
+      dashSpeed: $dashSpeed,
+      stamina: $stamina,
+      staminaCooldown: $staminaCooldown,
+    },
+    spiritPower: $spiritPower,
+  };
 }
