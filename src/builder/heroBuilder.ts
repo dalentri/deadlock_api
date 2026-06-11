@@ -13,18 +13,17 @@ export function heroBuilder(heroData: any[]) {
       bulletVelocity: heroData[7],
       lightMelee: heroData[8],
       heavyMelee: heroData[9],
-      falloffRange: heroData[10],
     },
     vitalityStats: {
-      health: heroData[11],
-      healthRegen: heroData[12],
-      moveSpeed: heroData[13],
-      sprintSpeed: heroData[14],
-      dashSpeed: heroData[15],
-      stamina: heroData[16],
-      staminaCooldown: heroData[17],
+      health: heroData[10],
+      healthRegen: heroData[11],
+      moveSpeed: heroData[12],
+      sprintSpeed: heroData[13],
+      dashSpeed: heroData[14],
+      stamina: heroData[15],
+      staminaCooldown: heroData[16],
     },
-    spiritPower: heroData[18],
+    spiritPower: heroData[17],
   };
 
   return hero;

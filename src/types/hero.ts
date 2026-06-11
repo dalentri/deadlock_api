@@ -10,7 +10,6 @@ export interface Hero {
     bulletVelocity: number;
     lightMelee: number;
     heavyMelee: number;
-    falloffRange: string;
   };
   vitalityStats: {
     health: number;

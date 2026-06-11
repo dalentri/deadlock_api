@@ -9,8 +9,7 @@
     "reloadTime": 2.5,
     "bulletVelocity": 43.4,
     "lightMelee": 42,
-    "heavyMelee": 120,
-    "falloffRange": "0"
+    "heavyMelee": 120
   },
   "vitalityStats": {
     "health": 680,
