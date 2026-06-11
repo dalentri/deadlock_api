@@ -1,35 +1,44 @@
 import * as cheerio from "cheerio";
 import { parseHeroData } from "./parser";
-import { heroBuilder } from "./builder/heroBuilder";
-import { readdir } from "node:fs/promises";
+import { heroes } from "../data/character_list";
+import { Hero } from "./types/hero";
+import { HeroModel } from "./models/Hero";
 
 // take html files that were fetched from deadlock wiki and parse them into json
-export async function processHeroData(
-  pathPrefix: string,
-  heroesHtmlFiles: string[],
-): Promise<any> {
-  for (const heroFile of heroesHtmlFiles) {
-    let heroData: any[] = [];
+export async function processHeroData(): Promise<any> {
+  let bulkHeroes: any[] = [];
 
-    const html: string = await Bun.file(pathPrefix + heroFile).text();
-    const $ = cheerio.load(html);
+  for (const hero of heroes) {
+    const params = new URLSearchParams({
+      action: "parse",
+      format: "json",
+      text: `{{infobox hero| key = ${hero}}}`,
+      title: "Heroes",
+    });
 
-    const rawData: any[] = parseHeroData($, heroData, heroFile);
+    try {
+      // Turn it into a percent encoded string
+      const stringParams = params.toString();
+      const url = `https://deadlock.wiki/api.php?${stringParams}`;
+      const response = await fetch(url);
+      const jsonResponse = await response.json();
 
-    const heroJson = JSON.stringify(heroBuilder(rawData), null, 2);
-    const heroJsonName = heroFile.replace(".html", ".json");
+      let html = jsonResponse.parse.text["*"];
 
-    console.log(`writing file for ${heroJsonName}`, heroJson);
-    await Bun.write(
-      `${import.meta.dir}/../data/charactersJson/${heroJsonName}`,
-      heroJson,
-    );
+      const $ = cheerio.load(html);
+
+      const rawData: Hero = parseHeroData($, hero);
+
+      bulkHeroes.push({
+        updateOne: {
+          filter: { slug: hero.toLowerCase().replaceAll(" ", "-") },
+          update: { $set: rawData },
+          upsert: true,
+        },
+      });
+    } catch (networkError) {
+      console.error(`[Error] Fetch failed for ${hero}`, networkError);
+    }
   }
+  await HeroModel.bulkWrite(bulkHeroes);
 }
-
-// Runs on script call =====
-const characterHtmlPathPrefix: string = "../data/charactersHtml/";
-const heroHtmlFiles = await readdir(characterHtmlPathPrefix);
-
-console.log("Parsing HTML and creating hero JSON files...");
-await processHeroData(characterHtmlPathPrefix, heroHtmlFiles);
