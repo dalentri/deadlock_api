@@ -13,7 +13,7 @@ The API features both a summary view of all characters and in-depth information 
 
 ## Getting Started
 
-If you don't already have TS runtime, install one. I recommend bun for speed.
+If you don't already have TS runtime, install one. Bun is what this project utilizes.
 
 To install for MacOS & Linux:
 
@@ -34,17 +34,35 @@ git clone https://codeberg.org/dalentri/deadlock_api.git
 cd deadlock_api
 ```
 
-First, we must initialize the project's data by running both the scraper (to gather the raw hero data) and parser (which parses that raw data into JSON). This is made easy with a custom script:
+After cloning, you must configure your `.env` variables. The project has a pre-populated `.env` under the name `.env.example`, to use the provided template, rename it to `.env`:
 
 ```bash
-bun run init
+mv .env.example .env
 ```
 
-Then, to start up the server:
+### Docker Startup
+
+Once `.env` variables are configured, next is running the docker compose file.
+
+#### First time running the application
+
+If its your first time running the app, or you haven't changed any config files:
 
 ```bash
-bun run src/index.ts
+docker compose up -d
 ```
+
+#### If you made changes
+
+If you made any changes to your `.env` file or if you made any changes to the code or dependencies in 'package.json':
+
+```bash
+docker compose up --build
+```
+
+Next is to test the API endpoints.
+
+### Testing out the API
 
 Now lets test it out! There are two quick ways to test the API:
 
