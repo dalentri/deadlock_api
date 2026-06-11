@@ -1,19 +1,21 @@
 import express from "express";
-import { heroSummaryCache, heroFullDataIndex } from "../../data/heroCache";
 import { Request, Response } from "express";
+import { HeroModel } from "../models/Hero";
+import { getCache } from "../cacheBuilder";
 
 const router = express.Router();
 
-router.get("/", (req: Request, res: Response) => {
-  res.json(heroSummaryCache);
+router.get("/", async (req: Request, res: Response) => {
+  res.json(await getCache());
 });
 
-router.get("/:character", (req: Request, res: Response) => {
+router.get("/:character", async (req: Request, res: Response) => {
   let characterKey = req.params.character as string;
   const cleanCharacterKey = characterKey.trim().toLowerCase().replace(" ", "-");
+  const hero = await HeroModel.findOne({ slug: cleanCharacterKey });
 
-  if (heroFullDataIndex[cleanCharacterKey]) {
-    res.json(heroFullDataIndex[cleanCharacterKey]);
+  if (hero) {
+    res.json(hero);
   } else {
     res.status(404).json({ message: "Character name not found." });
   }
