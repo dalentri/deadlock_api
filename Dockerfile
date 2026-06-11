@@ -1,4 +1,4 @@
-FROM dhi.io/bun:1-alpine3.22
+FROM oven/bun:canary-debian
 
 WORKDIR /app
 
