@@ -1,6 +1,7 @@
 import mongoose from "mongoose";
 import app from "./app";
 import { initCache } from "./cacheBuilder";
+import { processHeroData } from "./processHeroData";
 
 // Start API at port 3000
 async function startServer() {
@@ -10,6 +11,9 @@ async function startServer() {
 
     await mongoose.connect(mongoUri);
     console.log("Connected to MongoDB.");
+
+    await processHeroData();
+    console.log("Hero data scraped and processed.");
 
     await initCache();
     console.log("Cache implemented successfully.");
