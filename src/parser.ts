@@ -2,6 +2,8 @@ import * as cheerio from "cheerio";
 import { Hero } from "./types/hero";
 
 export function parseHeroData($: cheerio.CheerioAPI, heroName: string): Hero {
+  const slug: string = heroName.trim().toLowerCase().replaceAll(" ", "-");
+
   const name: string = heroName;
 
   const $damagePerSecond: number = parseInt(
@@ -159,8 +161,8 @@ export function parseHeroData($: cheerio.CheerioAPI, heroName: string): Hero {
       .eq(1)
       .prop("textContent") ?? "0",
   );
-
   return {
+    slug: slug,
     name: name,
     weaponStats: {
       damagePerSecond: $damagePerSecond,
