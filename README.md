@@ -5,7 +5,13 @@
 <!--toc:start-->
 
 - [Welcome to Deadlock API, a RESTful API built from the ground up with speed in mind](#welcome-to-deadlock-api-a-restful-api-built-from-the-ground-up-with-speed-in-mind)
+  - [Table of Contents](#table-of-contents)
   - [Getting Started](#getting-started)
+    - [Docker Startup](#docker-startup)
+      - [First time running the application](#first-time-running-the-application)
+      - [If you made changes](#if-you-made-changes)
+    - [Testing out the API](#testing-out-the-api)
+  - [Custom Characters](#custom-characters)
   <!--toc:end-->
 
 This API provides detailed information about characters in Valve's Deadlock.
