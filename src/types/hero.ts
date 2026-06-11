@@ -1,4 +1,5 @@
 export interface Hero {
+  slug: string;
   name: string;
   weaponStats: {
     damagePerSecond: number;
