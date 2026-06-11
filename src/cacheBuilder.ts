@@ -6,3 +6,7 @@ export async function initCache(): Promise<any> {
   const heroes = await HeroModel.find({}, { slug: 1, name: 1 });
   heroSummaryCache = heroes;
 }
+
+export async function getCache(): Promise<any[]> {
+  return heroSummaryCache;
+}
